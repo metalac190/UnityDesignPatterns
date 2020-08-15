@@ -1,0 +1,13 @@
+Singleton Pattern Definition
+Ensure a class has one instance and provide a global point of access to it
+
+Simplified - "Single object that is visible and manages itself"
+
+Why do we want to use it?
+If you need to gaurantee that only 1 instance of a thing exists AND provide easy access to it.
+Often, you usually need one or the other. Additionally, beware as this pattern creates excessive
+coupling peppered throughout your code and is extremely hard to refactor later if you decide you
+don't want it.
+
+Common Examples
+Music Players, Sound Systems, Particle Systems, Resource Loaders, Networking Managers, Data Management

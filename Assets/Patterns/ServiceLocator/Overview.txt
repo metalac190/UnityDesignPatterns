@@ -1,0 +1,9 @@
+Service Locator Definition
+Provide a global point of access to a service without coupling users to the concrete class
+that implements it
+
+Why do we want to use it?
+You need to search outwards to locate something, but want to minimize coupled code
+
+Common Examples
+Particle Creators, Spawning objects, creating things at runtime

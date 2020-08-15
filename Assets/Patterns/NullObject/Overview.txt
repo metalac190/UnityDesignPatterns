@@ -1,0 +1,9 @@
+Null Object Pattern Definition - Defining an object of a class that implements required methods, but without any behavior
+
+Simplified - "Create Nothing Behavior"
+
+Why do we want to use it?
+Prevents needless null checking, ensures our code will not break in instances where there shouldn't be a thing
+
+Common Examples
+No input, no powerup, no target, no weapon equipped, etc.

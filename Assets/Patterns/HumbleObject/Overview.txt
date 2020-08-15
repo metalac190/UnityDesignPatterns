@@ -1,0 +1,9 @@
+Humble Object Pattern Definition - Extract logic into a separate easy-to-test component that is decoupled
+from its environment.
+Simplified - "Put untestable code into a separate object"
+
+Why do we want to use it?
+Allows us to more easily test extremely coupled code
+
+Common Examples
+Testing complex mechanics

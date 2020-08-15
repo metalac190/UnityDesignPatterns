@@ -1,0 +1,13 @@
+Template Method Definition
+Defines the skeleton of an algorithm in the superclass, but lets subclass override specific steps
+without changing its structure
+
+Simplified - "Parent class decides when things happen, Child class decides 'what' happens."
+
+Why do we want to use it?
+We need each step to happen in a specific order, but want to allow user to change what happens
+during that 'step'.
+
+Common Examples
+Any mechanic that has common setup steps but needs variation on the behavior. 
+Enemies, Collectibles, Pickups, etc.

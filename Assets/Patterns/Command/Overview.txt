@@ -1,0 +1,11 @@
+Command Pattern Definition
+Encapsulates a request as an object, thereby letting us parameterize other
+objects with different requests, queue or log requests, and support undoable operations
+
+Simplified - "Wrap a method call into an object"
+
+Why do we want to use it?
+We may need to track method calls or actions for use in our systems. For example, 'Undo or Redo'
+
+Common Examples
+RTS commands, Any application that tracks Action history, Undoing actions in a turn-based game

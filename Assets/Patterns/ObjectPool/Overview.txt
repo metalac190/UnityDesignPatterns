@@ -1,0 +1,12 @@
+Object Pool Pattern Definition
+Improve performance and memory use by reusing objects from a
+fixed pool instead of allocating and freeing them individually
+
+Simplified - "Reuse objects instead of Destroying them"
+
+Why do we want to use it?
+To prevent unpredictable optimization issues from the Garbage Collector from excessive Creation and Destruction
+of objects at runtime
+
+Common Examples
+Bullet systems, armies of units, particle effects

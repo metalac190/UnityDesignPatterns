@@ -1,0 +1,11 @@
+Factory Pattern Definition
+Creational pattern that uses factory methods to create objects without
+having to specify the exact class of the object that will be created.
+
+Simplified - "Create new objects without knowing concrete type"
+
+Why do we want to use it?
+We want to be able to create general 'types' of things at runtime, rather than very specific things
+
+Common Examples
+Spawning systems, Loot spawning, Procedural generation

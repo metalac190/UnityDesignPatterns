@@ -1,0 +1,13 @@
+State Pattern Definition
+Allow an object to alter its behavior when its internal state changes. The object will appear
+to change its class
+
+Simplified - "Object changes behavior based on game state"
+
+Why do we want to use it?
+We want different behavior depending on various gameplay input or parameters. For example, we
+may want the game to act differently in the 'Combat' phase than the 'Exploration' phase
+
+Common Examples
+Any object that changes behavior based on a condition, Game State Flow, UI Systems,
+Digital Board Games, Turn-Based games

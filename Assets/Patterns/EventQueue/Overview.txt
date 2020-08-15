@@ -1,0 +1,10 @@
+Event Queue Definition
+decouples when a message or event is sent from when it is processed
+
+Simplified - "Create and modify a sequence of events"
+
+Why do we want to use it?
+If you want actions to happen in sequence, regardless of time duration, use this pattern.
+
+Common Examples
+Turn-Based games, RPGs, Digital Card Games

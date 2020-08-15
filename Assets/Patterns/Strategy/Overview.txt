@@ -1,0 +1,10 @@
+Strategy Pattern Definition
+Enables selecting an algorithm (behavior) at runtime
+
+Simplified - "New behavior swapped in during runtime"
+
+Why do we want to use it?
+Any time we want swappable behavior. This is EXTREMELY common in games
+
+Common Examples
+Weapon pickups, Equippable things, Character Abilities, Items, etc.
