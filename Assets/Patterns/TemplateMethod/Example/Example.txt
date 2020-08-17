@@ -1,0 +1,23 @@
+Template Method - Collectible Variation
+
+In this example, we're creating a base version of a mechanic and exposing a method
+that child objects will need to implement. We're making the base class abstract, to
+keep it as our 'Collectible Template' that can't be created itself. When we want
+to create a new Collectible, we need to inherit from the 'Template' and tell it what
+needs to happen whenever the Player Collects it.
+
+The advantage of this pattern in the example is that all of our detection code and
+Feedback is handled in the template. All we care about is what happens when it's collected.
+You can see that there's very little new code in the Collectible variations, so we're able
+to create many new collectibles extremely quickly!
+
+Testing - Try playing through the example level and colliding with the collectibles.
+Open up the Collectible scripts to see how we've implemented new behavior with just a few
+lines of code. Also investigate the Base class (Collectible) to see how we're setting up
+all of our boilerplate code to make it all work.
+
+Practice - Try adding additional collectibles into your scene. For example, try implementing
+a collectible that bounces the player when touched. Consider overriding 'Disable' so that the
+collectible doesn't get disabled if you don't want it to!
+Notice how quickly you can add variations in our setup. The only thing that needs to change between
+collectibles are the visuals and the 'OnCollect' functionality.

@@ -1,0 +1,17 @@
+Command Pattern Example - Light Controller
+
+In this example, we're sending 'Commands' to control a light. For each command, we're
+using the ICommand interface to ensure that all commands have an Execute() and an Undo().
+We're then tracking all of our Command History in a Stack so that we can walk forward
+and backward in our history, based on the which command was sent.
+
+Try opening up some of the commands to see how they're structured. You can even create
+additional commands if you want to practice the command pattern in this example. Anything
+you can do to the light is fair to turn into a command!
+
+Testing - Try using the number keys to send various commands to the light, and use
+Z to undo. You can see how each command will undo its own action that is performed.
+
+Practice - Try creating new commands in our system to see how easy it is to 
+build additional functionality.
+Try implementing: Light movement with left/right, change light range, change light type, etc
