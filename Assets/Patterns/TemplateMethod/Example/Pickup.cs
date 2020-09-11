@@ -17,8 +17,8 @@ namespace Examples.TemplateMethod
         protected abstract void OnPickup(Player player);
 
         [Header("Feedback")]
-        [SerializeField] AudioClip _pickupSFX;
-        [SerializeField] ParticleSystem _particlePrefab;
+        [SerializeField] AudioClip _pickupSFX = null;
+        [SerializeField] ParticleSystem _particlePrefab = null;
 
         Collider _collider = null;
         AudioSource _audioSource = null;

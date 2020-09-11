@@ -1,0 +1,28 @@
+Example - Weapons and Projectiles
+
+This example will explore the Strategy Pattern as both inheritance (using
+abstract methods) and composition (using Interfaces)
+
+Weapons - Inheritance
+We will apply an abstract class for the weapons, where each weapon can define
+its own 'Shoot()' behavior. If we want to create new weapons, we inherit from the
+bastract 'base' Weapon, and define new behavior for Shoot. The advantage of doing thi
+with inheritance vs composition is that we can hold a lot of default state and setup code
+(if we want) and still retain the abstract 'Strategy' behavior for Shoot.
+In this example, we've created a Blaster and a Launcher, each shooting its own
+type of projectiles, and with the option to Shoot differently (though in this example
+the code is mostly the same).
+
+Projectiles - Composition
+We will apply an interface for the Projectile movement, to show that we
+can change the movement behavior at runtime, whenever we want. The projectile
+will hold on to a 'MovementBehavior' that it will use when attempting to move
+the projectile. This will be our interface representing the Strategy pattern.
+We will then define different types of 'Movement' and apply the one we want
+in our Projectile's 'MovementBehavior' slot. We can change this at any time, 
+and the Projectiles's move behavior will change.
+In this example, we've created a LinearMovement and an AcceleratedMovement. Both movement
+patterns travel in forward direction, but the linear moves at a consistent speed and
+the accelerated slowly speeds up over time.
+We've created a SlowField, where if a Projectile passes through it slows then accelerates.
+We've also created a FreezeProjectilesField, where if projectiles pass through they stop!

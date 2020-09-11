@@ -17,7 +17,9 @@ namespace Examples.Observer
     {
         [SerializeField] Health _healthToObserve = null;
         [SerializeField] Text _textPopupUI = null;
+
         [SerializeField] string _hitText = "Hit!";
+        [SerializeField] string _killText = "KILL";
         [SerializeField] float _textPopupDuration = 1;
 
         Health _observedHealth = null;
@@ -63,6 +65,9 @@ namespace Examples.Observer
 
         void OnObservedHealthKilled()
         {
+            if (_popupRoutine != null)
+                StopCoroutine(_popupRoutine);
+            _popupRoutine = StartCoroutine(TextPopup(_killText));
             StopObservingHealth();
         }
     }

@@ -6,7 +6,7 @@ namespace Examples.TemplateMethod
 {
 	public class CameraFollow : MonoBehaviour
 	{
-		[SerializeField] GameObject _player;
+		[SerializeField] GameObject _player = null;
 		Vector3 _offset;
 
 		void Start()
