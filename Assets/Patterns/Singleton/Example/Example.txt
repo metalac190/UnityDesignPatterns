@@ -1,0 +1,34 @@
+Example - Level Data
+This example will explore the Singleton Pattern with a few different examples.
+First, we'll look at a simple Singleton implementation with the Time of Day.
+Then, we'll look at how to save time by working with Generic Singleton systems
+to add more reusability and utilize Lazy Instantiation.
+Finally, we'll look an alternative to Singletons by storing our Data as a an Asset
+inside of our Project assets and accessing that instead
+
+Time of Day - Singleton, Simple
+The TimeOfDay script in this example enforces that only one can be active in a scene at a time.
+In order for it to work, you must place the prefab in the scene, however it will destroy
+extra prefabs if they try to load in. You can also access this Singleton's methods from anywhere
+in the scene!
+
+Music Player - Singleton, Generic/Reusable, Lazy Instantiation
+The MusicPlayer inherits from a Generic class 'MBSingleton', which allows us to add more extensive
+and generic code to handle all of the Singleton behavior. This will allow us to quickly create new
+Singleton objects without having to retype all of the boilerplate code.
+Another advantage of this setup is that it never gets created until the moment it is accessed, meaning
+that we never have it until we need it.
+To test, press the 1 or 2 key and notice how the object gets created and it plays music. Also notice
+that if you press the keys again to switch tracks, it doesn't create an extra MusicPlayer - it uses
+the one we already created.
+
+Level Data - Scriptable Object Data Asset
+In this example, we're defining a type of Scriptable Object that can hold any of the Level Data that
+we want. We're then creating an instance of this Scriptable Object as an asset file (named "Swamp Level")
+and adding any data we want into this asset, provided it's related to the Swamp level. We can change or
+store any data as needed, and your scene scripts should be able to easily find this single Level Data instance
+as it exists in your Project Files as an asset.
+Look through the MoneyIncreaser, NameUpdater, and DifficultyIncreaser objects to see this in action. All 3
+are accessing the same 'SwampLevel' SO asset we created, and all 3 can see any of the data on it, and change
+any data they need. This is a useful alternative to the Singleton Pattern if all you're looking for is
+easy access to a level instance.

@@ -1,7 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
+/// <summary>
+/// Based on the Unity Community Singleton code sample, but adjusted to work
+/// with MonoBehaviors.
+/// Inherit from this with the pattern NewClass : MBSingleton<NewClass>
+/// </summary>
+/// <typeparam name="T"></typeparam>
 public abstract class MBSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     // check to see if we're about to be destroyed
@@ -21,7 +28,7 @@ public abstract class MBSingleton<T> : MonoBehaviour where T : MonoBehaviour
                 Debug.LogWarning("[Singleton] Instance '" + typeof(T) 
                     + "'already destroyed. Returning null.");
                 return null;
-            }
+            }  
             // ensure only one instance completes the code block, so we can assign the first instance safely
             lock(_lock)
             {
@@ -38,7 +45,6 @@ public abstract class MBSingleton<T> : MonoBehaviour where T : MonoBehaviour
                         singletonGameObject.name = typeof(T).ToString() + " (Singleton)";
                         // make instance persistent
                         DontDestroyOnLoad(singletonGameObject);
-                        // get notifications when we load a new level
                     }
                 }
 

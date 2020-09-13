@@ -2,33 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class performs actions on the level for testing.
+/// In this case we're telling the MusicPlayer to play different tracks
+/// </summary>
 namespace Examples.Singleton
 {
     public class LevelController : MonoBehaviour
     {
-        [SerializeField] Light _sun = null;
+        [SerializeField] AudioClip _explorationMusic = null;
+        [SerializeField] AudioClip _combatMusic = null;
 
         private void Update()
         {
-            // Space - Begin day
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                TimeOfDay.Instance.BeginDay(12, _sun);
-            }
-            // 1 - 6am
+            // 1 - Begin playing music track
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                TimeOfDay.Instance.SetTime(6);
+                MusicPlayer.Instance.PlayNewSong(_explorationMusic);
             }
-            // 2 - noon
+            // 2 - Play Combat music track
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                TimeOfDay.Instance.SetTime(12);
-            }
-            // 3 - 6pm
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                TimeOfDay.Instance.SetTime(18);
+                MusicPlayer.Instance.PlayNewSong(_combatMusic);
             }
         }
     }

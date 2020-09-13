@@ -4,15 +4,34 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// This class will show how we can use a Lazy Singleton pattern on a MonoBehavior
+/// This class will show how we can use a very simple Singleton pattern on a MonoBehavior
 /// to implement a Time of Day. We wouldn't really want Time of Day to exist more than
 /// once in a scene, so it makes sense to make this a Singleton if several other things
 /// need access.
 /// </summary>
 namespace Examples.Singleton
 {
-    public class TimeOfDay : MBSingleton<TimeOfDay>
+    public class TimeOfDay : MonoBehaviour
     {
+        // access singleton instance through this property
+        public static TimeOfDay Instance;
+
+        private void Awake()
+        {
+            if(Instance == null)
+            {
+                // this is our singleton. Always persist
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                // already have a singleton - Destroy this one
+                Destroy(gameObject);
+            }
+        }
+        // this is the sun that rotates in real time
+        [SerializeField] Light _sun = null;
         // when this value is reached it loops back around to 0
         const float HOURS_PER_DAY = 24;
         // this offsets rotation to allow noon to be facing directly downwards
@@ -31,7 +50,10 @@ namespace Examples.Singleton
             }
         }
 
-        Light _sun = null;
+        private void Start()
+        {
+            BeginDay(8);
+        }
 
         private void Update()
         {
@@ -42,11 +64,10 @@ namespace Examples.Singleton
             }
         }
 
-        public void BeginDay(float startTime, Light sun)
+        public void BeginDay(float startTime)
         {
             CurrentHour = startTime;
             SetTimeActive(true);
-            _sun = sun;
         }
 
         public void SetTimeActive(bool isActive)
@@ -77,7 +98,6 @@ namespace Examples.Singleton
             {
                 _currentHour = 0;
             }
-            Debug.Log("Current Time: " + _currentHour);
         }
     }
 }
