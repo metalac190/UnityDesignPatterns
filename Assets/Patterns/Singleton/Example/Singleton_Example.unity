@@ -670,6 +670,75 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _explorationMusic: {fileID: 8300000, guid: b8316e0ef492d9e48ae84746ac8c66ff, type: 3}
   _combatMusic: {fileID: 8300000, guid: c7f59140b7eb0ff48abb9fc198057548, type: 3}
+--- !u!1001 &639173664
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2851580670355004045, guid: cbf7bf4cd66999e47ac8780376dd84cc,
+        type: 3}
+      propertyPath: m_Name
+      value: TimeOfDay (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851580670355004047, guid: cbf7bf4cd66999e47ac8780376dd84cc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851580670355004047, guid: cbf7bf4cd66999e47ac8780376dd84cc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851580670355004047, guid: cbf7bf4cd66999e47ac8780376dd84cc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851580670355004047, guid: cbf7bf4cd66999e47ac8780376dd84cc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851580670355004047, guid: cbf7bf4cd66999e47ac8780376dd84cc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851580670355004047, guid: cbf7bf4cd66999e47ac8780376dd84cc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851580670355004047, guid: cbf7bf4cd66999e47ac8780376dd84cc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851580670355004047, guid: cbf7bf4cd66999e47ac8780376dd84cc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851580670355004047, guid: cbf7bf4cd66999e47ac8780376dd84cc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851580670355004047, guid: cbf7bf4cd66999e47ac8780376dd84cc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851580670355004047, guid: cbf7bf4cd66999e47ac8780376dd84cc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cbf7bf4cd66999e47ac8780376dd84cc, type: 3}
 --- !u!1 &770261728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,7 +1459,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -1403,21 +1472,20 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'SINGLETON
 
-    Space - Start Day/Night cycle
-
-    1 - Play Exploration
-    Music
+    1 - Play Exploration Music
 
     2 - Play Combat Music
 
-    Q - Increase Difficulty
+    Q
+    - Increase Difficulty
 
     W - Add Money
 
 
-    Notice
-    that the MusicPlayer is only instantiated when it is first called. Notice that
-    Level Data is all accessed through a single Project Asset.'
+    Notice that extra instance of
+    TimeOfDay are auto destroyed. Notice that the MusicPlayer is only instantiated
+    when it is first called. Notice that Level Data is all accessed from different
+    locations through a single Project Asset.'
 --- !u!222 &1326015603
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -2,15 +2,15 @@ Example - Level Data
 This example will explore the Singleton Pattern with a few different examples.
 First, we'll look at a simple Singleton implementation with the Time of Day.
 Then, we'll look at how to save time by working with Generic Singleton systems
-to add more reusability and utilize Lazy Instantiation.
+to add more reusability and utilize Lazy Instantiation with the Music Player.
 Finally, we'll look an alternative to Singletons by storing our Data as a an Asset
 inside of our Project assets and accessing that instead
 
 Time of Day - Singleton, Simple
 The TimeOfDay script in this example enforces that only one can be active in a scene at a time.
 In order for it to work, you must place the prefab in the scene, however it will destroy
-extra prefabs if they try to load in. You can also access this Singleton's methods from anywhere
-in the scene!
+extra prefabs if they try to load in (the scene starts off with a few extras to show this).
+You can also access this Singleton's methods from anywhere in the scene!
 
 Music Player - Singleton, Generic/Reusable, Lazy Instantiation
 The MusicPlayer inherits from a Generic class 'MBSingleton', which allows us to add more extensive
