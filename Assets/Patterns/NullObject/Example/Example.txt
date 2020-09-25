@@ -1,0 +1,30 @@
+Example - Null Object Pattern
+This example will explore the Null Object Pattern using an equipment system.
+The idea is that when we don't have anything equipped we want to equip an 'empty' item,
+instead of nothing at all. If the object is and EmptyItem, the code will still work and
+we can just not do anything. If the object was null, we'd get an error even though not
+having an item equipped is perfectly acceptable behavior in most games
+
+Inventory Equipping - Null Object
+In this example we've created an interface of type IEquippable. Anything that can be equipped needs to
+define both an Equip() and an Unequip(). In our CharacterStats we're holding on to whatever equipment is
+in our slot. The Null Object pattern comes into play when we unequip something in our slot... we don't want
+it to be null, we just want it to do 'nothing'! We accomplish this by creating a NoEquipment class that implements
+IEquippable, but doesn't do anything when it's called. This saves us from excessive null checking, especially
+since we actually intend for the player to sometimes unequip things!
+Try pressing Q to print out your starting stats, then equip your sword and helmet with 1 and 2. Press Q again
+to print out the stats and see how they have changed.
+When equipping the items we ALWAYS have something equipped, but sometimes our item just doesn't do anything
+(and that's the core of the Null Object Pattern!)
+
+Weapon Swinging - Null Object
+This example is built off the previous example, and centers around a Weapon that can be equipped and used.
+Our weapon is both equippable AND a weapon, so we make sure to use both interfaces. We're using casting to
+determine if a certain interface is on our class, and if we've determined that our weapon is valid we use it.
+We've used the NullObject pattern by created a NoWeapon class, where it doesn't do anything instead just like the
+previous example.
+Try pressing Spacebar when the level starts, notice that nothing happens, then press 1 and then Spacebar again.
+We swing our sword! In this example we did actually check for Null after we did our cast, but we still retain
+all the other benefits of our null object pattern once it's been assigned and anything else tries to access it
+
+
