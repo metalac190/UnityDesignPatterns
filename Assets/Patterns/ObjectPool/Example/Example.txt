@@ -1,0 +1,15 @@
+Example - Turrets
+In this example we look at a common game problem where you have a player that needs to rapidly fire
+projectiles at a rate of several per second (or more). We build a Projectile pooling system that is modular
+enough to be reused with minimal tweaking.
+
+Turret Projectiles - Simple Object Pool
+We create a ProjectilePool script that inherits from our MBPool generic script -> This quickly gives us
+the pooling behavior!
+When we request a projectile from the pool, if it has one available it removes it from the pool and gives it to us.
+We can return it when we no longer need it, and if it doesn't have any to give it will create it.
+To test, try spamming the fire button as quickly as you can, and watch how projectiles are created at start
+under our Pool gameObject and then disabled. 'Getting' a pooled object allows us to activate and send
+whatever we need to that instance of the script. Notice that our solution is generic, instead of GameObject based,
+so that we can call methods on the scripts directly. We're doing this to pass the Projectile Pool to the Projectile,
+so that it knows where to return itself whenever it's done!

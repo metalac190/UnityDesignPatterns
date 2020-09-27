@@ -31,7 +31,7 @@ public abstract class MBObjectPool<T> : MonoBehaviour where T : Component
     /// Retrieve a deactivated object from the pool and Activate it
     /// </summary>
     /// <returns></returns>
-    public T RetrieveObject()
+    public T ActivateFromPool()
     {
         // if we don't have enough, make a new one
         if (_objectPool.Count == 0)
@@ -40,8 +40,8 @@ public abstract class MBObjectPool<T> : MonoBehaviour where T : Component
         }
 
         T newPoolObject = _objectPool.Dequeue();
-        // enable it and return
-        newPoolObject.gameObject.SetActive(true);
+        
+        // return it
         return newPoolObject;
     }
 
@@ -50,10 +50,10 @@ public abstract class MBObjectPool<T> : MonoBehaviour where T : Component
     /// to default settings if you've made any changes to the object's attributes.
     /// </summary>
     /// <param name="objectToReturn"></param>
-    public void ReturnObject(T objectToReturn)
+    public void ReturnToPool(T objectToReturn)
     {
         ResetObjectDefaults(objectToReturn);
-
+        // disable just in case
         objectToReturn.gameObject.SetActive(false);
         _objectPool.Enqueue(objectToReturn);
     }
@@ -94,6 +94,7 @@ public abstract class MBObjectPool<T> : MonoBehaviour where T : Component
         newObject.transform.SetParent(this.transform);
         newObject.gameObject.name = _prefab.gameObject.name;
         newObject.gameObject.SetActive(false);
+        Debug.Log("Enqueue");
         _objectPool.Enqueue(newObject);
     }
 }

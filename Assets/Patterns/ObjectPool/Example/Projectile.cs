@@ -1,0 +1,82 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+namespace Examples.ObjectPool
+{
+    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(Collider))]
+    public class Projectile : MonoBehaviour
+    {
+        [SerializeField] float _travelSpeed = 5f;
+        [SerializeField] int _damage = 20;
+        [SerializeField] float _lifeTime = 1.5f;
+
+        Rigidbody _rb = null;
+        ProjectilePool _projectilePool = null;
+        Coroutine _selfDestructRoutine = null;
+
+        private void Awake()
+        {
+            _rb = GetComponent<Rigidbody>();
+        }
+
+        private void OnEnable()
+        {
+            if (_selfDestructRoutine != null)
+                StopCoroutine(_selfDestructRoutine);
+            _selfDestructRoutine = StartCoroutine(DestroyAfterSeconds(_lifeTime));
+        }
+
+        private void OnDisable()
+        {
+            if (_selfDestructRoutine != null)
+                StopCoroutine(_selfDestructRoutine);
+        }
+
+        // using this as a substitute for Constructor on MB
+        public void AssignPool(ProjectilePool projectilePool)
+        {
+            _projectilePool = projectilePool;
+        }
+
+        private void FixedUpdate()
+        {
+            Travel(_rb);
+        }
+
+        protected void Travel(Rigidbody rb)
+        {
+            Vector3 moveOffset = transform.forward * _travelSpeed;
+            rb.MovePosition(rb.position + moveOffset);
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            // do damage
+            RemoveSelf();
+        }
+
+        void RemoveSelf()
+        {
+            if (_projectilePool != null)
+            {
+                // return to Pool, instead of Destroy
+                _projectilePool.ReturnToPool(this);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        IEnumerator DestroyAfterSeconds(float lifeTime)
+        {
+            yield return new WaitForSeconds(lifeTime);
+            RemoveSelf();
+        }
+    }
+}
+
+
