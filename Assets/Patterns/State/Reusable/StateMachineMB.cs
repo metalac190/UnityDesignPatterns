@@ -12,7 +12,7 @@
 using System.Collections;
 using UnityEngine;
 
-public abstract class MBStateMachine : MonoBehaviour
+public abstract class StateMachineMB : MonoBehaviour
 {
 	public IState CurrentState { get; private set; }
 	public IState _previousState;
@@ -60,4 +60,11 @@ public abstract class MBStateMachine : MonoBehaviour
 		if (CurrentState != null && !_inTransition)
 			CurrentState.Tick();
 	}
+
+    public void FixedUpdate()
+    {
+		// simulate fixedUpdate ticks in states
+		if (CurrentState != null && !_inTransition)
+			CurrentState.FixedTick();
+    }
 }

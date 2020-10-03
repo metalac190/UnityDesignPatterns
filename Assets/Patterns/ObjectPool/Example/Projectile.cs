@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace Examples.ObjectPool
 {
     [RequireComponent(typeof(Rigidbody))]
@@ -10,7 +9,6 @@ namespace Examples.ObjectPool
     public class Projectile : MonoBehaviour
     {
         [SerializeField] float _travelSpeed = 5f;
-        [SerializeField] int _damage = 20;
         [SerializeField] float _lifeTime = 1.5f;
 
         Rigidbody _rb = null;

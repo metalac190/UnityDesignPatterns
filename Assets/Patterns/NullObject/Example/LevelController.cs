@@ -6,8 +6,8 @@ namespace Examples.NullObject
 {
     public class LevelController : MonoBehaviour
     {
-        [SerializeField] CharacterStats _stats;
-        [SerializeField] PlayerActions _playerActions;
+        [SerializeField] CharacterStats _stats = null;
+        [SerializeField] PlayerActions _playerActions = null;
 
         IEquippable _weaponToTest;
         IEquippable _helmetToTest;

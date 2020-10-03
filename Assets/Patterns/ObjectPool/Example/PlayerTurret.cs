@@ -8,7 +8,7 @@ namespace Examples.ObjectPool
     [RequireComponent(typeof(AudioSource))]
     public class PlayerTurret : MonoBehaviour
     {
-        [SerializeField] Transform _projectileSpawnPoint;
+        [SerializeField] Transform _projectileSpawnPoint = null;
         [SerializeField] Projectile _projectile = null;
         [SerializeField] ProjectilePool _projectilePool = null;
         [SerializeField] float _turnSpeed = 1;
