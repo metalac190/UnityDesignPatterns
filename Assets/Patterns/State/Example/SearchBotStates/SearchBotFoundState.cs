@@ -7,72 +7,86 @@ using UnityEngine;
 /// Because IState is not inheriting from MonoBehaviour, we don't have access to Coroutines
 /// This means that we're going to have to implement our own simple timer system.
 /// </summary>
-public class SearchBotFoundState : IState
+
+namespace Examples.State
 {
-    SearchBotSM _searchBotSM;
-
-    Material _eyeMat;
-    Color _startingEyeColor;
-    Color _foundEyeColor = Color.green;
-
-    // how long to wait for our 'Found' state
-    float _foundDelayDuration = 1.5f;
-    float _elapsedTime = 0;
-    bool _timerActive = false;
-
-    public SearchBotFoundState(SearchBotSM searchBotSM, Material eyeMat)
+    public class SearchBotFoundState : IState
     {
-        _searchBotSM = searchBotSM;
-        _eyeMat = eyeMat;
-    }
+        SearchBotSM _searchBotSM;
 
-    public void Enter()
-    {
-        Debug.Log("STATE CHANGE - Found");
-        
-        // store starting eye color so we can return to it
-        _startingEyeColor = _eyeMat.color;
-        // show 'found' visual
-        _eyeMat.color = _foundEyeColor;
+        Material _eyeMat;
+        Color _startingEyeColor;
+        Color _foundEyeColor = Color.green;
 
-        StartTimer();
-    }
+        AudioClip _foundSound;
+        AudioSource _audioSource;
 
-    public void Exit()
-    {
-        // stop 'found' visual
-        _eyeMat.color = _startingEyeColor;
-    }
+        // how long to wait for our 'Found' state
+        float _foundDelayDuration = 1.5f;
+        float _elapsedTime = 0;
+        bool _timerActive = false;
 
-    public void FixedTick()
-    {
-        //
-    }
-
-    public void Tick()
-    {
-        // if timer is active, increment time
-        if (_timerActive)
+        public SearchBotFoundState(SearchBotSM searchBotSM, Material eyeMat,
+            AudioClip foundSound, AudioSource audioSource)
         {
-            _elapsedTime += Time.deltaTime;
+            _searchBotSM = searchBotSM;
+            _eyeMat = eyeMat;
+            _foundSound = foundSound;
+            _audioSource = audioSource;
         }
 
-        // if our elapsed time has met our required duration, then go back to Idle
-        if(_elapsedTime > _foundDelayDuration)
+        public void Enter()
         {
-            StopTimer();
-            _searchBotSM.ChangeState(_searchBotSM.IdleState);
+            Debug.Log("STATE CHANGE - Found");
+
+            // store starting eye color so we can return to it
+            _startingEyeColor = _eyeMat.color;
+            // show 'found' visual
+            _eyeMat.color = _foundEyeColor;
+            // play sound effect
+            _audioSource.clip = _foundSound;
+            _audioSource.Play();
+            // start our delay to pause before going back to idle
+            StartTimer();
         }
-    }
 
-    void StartTimer()
-    {
-        _timerActive = true;
-        _elapsedTime = 0;
-    }
+        public void Exit()
+        {
+            // stop 'found' visual
+            _eyeMat.color = _startingEyeColor;
+        }
 
-    void StopTimer()
-    {
-        _timerActive = false;
+        public void FixedTick()
+        {
+            //
+        }
+
+        public void Tick()
+        {
+            // if timer is active, increment time
+            if (_timerActive)
+            {
+                _elapsedTime += Time.deltaTime;
+            }
+
+            // if our elapsed time has met our required duration, then go back to Idle
+            if (_elapsedTime > _foundDelayDuration)
+            {
+                StopTimer();
+                _searchBotSM.ChangeState(_searchBotSM.IdleState);
+            }
+        }
+
+        void StartTimer()
+        {
+            _timerActive = true;
+            _elapsedTime = 0;
+        }
+
+        void StopTimer()
+        {
+            _timerActive = false;
+        }
     }
 }
+
