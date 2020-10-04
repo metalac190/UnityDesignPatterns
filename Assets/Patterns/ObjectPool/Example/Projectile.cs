@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This is a fairly large class, but encompasses most of the Projectile functionality.
+/// Whenever these are 'Destroyed' we check to see if they're associated with a pool. If they are, then
+/// they are destroyed.
+/// </summary>
 namespace Examples.ObjectPool
 {
     [RequireComponent(typeof(Rigidbody))]

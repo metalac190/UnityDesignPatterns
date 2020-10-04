@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class holds all of our equipment and basic stats. Our stats will be adjusted based on what we have
+/// equipped in our slots.
+/// </summary>
 namespace Examples.NullObject
 {
     public class CharacterStats : MonoBehaviour

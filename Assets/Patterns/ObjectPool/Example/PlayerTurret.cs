@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This is a simple character controller that allows us to rotate and shoot projectiles.
+/// Whenever we 'request' a projectile to be created, we are getting one from the pool and assigning the
+/// pool to the projectile. We could optionally assign the pool in a different class, but this setup makes the
+/// example clear.
+/// </summary>
 namespace Examples.ObjectPool
 {
     [RequireComponent(typeof(Rigidbody))]

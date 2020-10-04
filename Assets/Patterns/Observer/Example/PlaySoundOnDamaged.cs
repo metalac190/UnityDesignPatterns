@@ -7,6 +7,8 @@ using UnityEngine;
 /// whenever the observed health takes damage or is killed.
 /// Note that this script doesn't know about any other scripts
 /// or Observers other than the Health, our Subject.
+/// Usually you may want to combine this into other class behavior, but I think this is a useful
+/// way of seeing how event calls allow you to break down classes as much as you need.
 /// </summary>
 namespace Examples.Observer
 {

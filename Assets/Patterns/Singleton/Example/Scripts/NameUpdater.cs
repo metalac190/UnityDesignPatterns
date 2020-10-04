@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// This class access the Level Data to change and display the name
+/// This class access the Level Data Scriptable Object to change and display the name
 /// </summary>
 namespace Examples.Singleton
 {

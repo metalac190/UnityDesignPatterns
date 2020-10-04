@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Example of a Command for our Light. We increase the intensity, and on Undo, we revert our increase.
+/// </summary>
 namespace Examples.Command
 {
     public class LightIncreaseIntensity : ICommand

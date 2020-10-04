@@ -18,8 +18,8 @@ namespace Examples.State
     {
         public event Action<Vector3> NewTargetAcquired = delegate { };
 
-        [SerializeField] AudioClip _newTargetSound;
-        [SerializeField] GameObject _targetIndicatorPrefab;
+        [SerializeField] AudioClip _newTargetSound = null;
+        [SerializeField] GameObject _targetIndicatorPrefab = null;
         GameObject _targetIndicator;
 
         Camera _camera = null;

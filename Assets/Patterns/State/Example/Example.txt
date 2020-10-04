@@ -1,0 +1,29 @@
+Example - SearchBot
+This example will explore the State Pattern and how you can use it for game objects.
+The State Pattern uses a 'Finite State Machine' to store possible states and handle the transitions
+on how we can move from one state to the next. We can constrain states to a particular object so that
+it behaves differently depending on what's happening inside of the game.
+Most commonly, you will see this used to define the major 'phases' in a game... for example, "Enemy Turn",
+"Player Select", "Equipment Screen", etc.
+We'll look at how to use states on a specific object in this example, but know that you can add states
+to almost any object you want.
+
+SearchBot States
+In our scene we will have a SearchBot that has 2 primary types of classes:
+SearchBotSM - This is the SearchBot's State Machine, and it holds all the possible states
+Searchbot States:
+SearchBotIdleState - This State defines SearchBot behaviour while in Idle state
+SearchBotSearchState - This State defines Searchbot behaviour while in Searching state
+SearchBotFoundState - This State defines SearchBot behaviour while in Found state
+The State Pattern is fairly complex, but as long as you're defining the 'state' an object is in based on
+conditionals, then you're using a variant of it. For our example, each State needs to implement:
+Enter - gets called when the state is entered. Use this to set up your state
+Tick - this simulates Update() ticks during the state
+FixedTick - this simulates FixedUpdate() ticks during the state
+Exit - gets called when the state is transitioning out, to a new state. Use this to unhook or revert anything
+that you might have changed when the state was entered.
+Press Play and click around the scene. We have a TargetAssigner gameObject that processes mouse click targets,
+and the SearchBot responds to them according to the state. If we're in Idle state, we transition to Searching and
+move towards the target. If we're searching, and we reach the target, we transition to found state. After a brief
+delay, we transition back to Idle. Click around in Play mode to test this out.
+

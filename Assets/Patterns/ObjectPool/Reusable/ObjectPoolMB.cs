@@ -10,7 +10,7 @@ using UnityEngine;
 /// 3. Optionally, override ResetDefaults() to do extra work on object before returning to pool
 /// does not return object default settings: that is left to the user.
 /// </summary>
-public abstract class MBObjectPool<T> : MonoBehaviour where T : Component
+public abstract class ObjectPoolMB<T> : MonoBehaviour where T : Component
 {
     [Header("Pool Settings")]
     [SerializeField] private T _prefab = null;

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This is mostly a simple 'Detect Input' and 'Fire Projectile'. This is mostly for showcasing the mechanics
+/// and triggering damage events by creating projectiles on key press
+/// </summary>
 namespace Examples.Observer
 {
     public class Cannon : MonoBehaviour

@@ -6,10 +6,10 @@ using UnityEngine;
 /// <summary>
 /// Based on the Unity Community Singleton code sample, but adjusted to work
 /// with MonoBehaviors.
-/// Inherit from this with the pattern NewClass : MBSingleton<NewClass>
+/// Inherit from this with the pattern NewClass : SingletonMB<NewClass>
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public abstract class MBSingleton<T> : MonoBehaviour where T : MonoBehaviour
+public abstract class SingletonMB<T> : MonoBehaviour where T : MonoBehaviour
 {
     // check to see if we're about to be destroyed
     private static bool _shuttingDown = false;

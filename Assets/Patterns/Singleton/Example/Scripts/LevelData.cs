@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// This Scriptable Object definitiation outlines the skeleton of a LevelData instance
+/// This Scriptable Object definitiation outlines the skeleton of a LevelData instance.
+/// We can store all of our data in this asset as an instance, that way we don't need to rely on
+/// Singletons just for data management.
 /// </summary>
 namespace Examples.Singleton
 {

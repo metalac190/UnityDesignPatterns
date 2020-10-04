@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// This class accesses the Level Data instance to change and store money
+/// This class accesses the Level Data Scriptable Object instance to change and store money
 /// </summary>
 namespace Examples.Singleton
 {

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// This class changes and stores difficulty data on our LevelData instance
+/// This class changes and stores difficulty data on our LevelData instance Scriptable Object
 /// </summary>
 namespace Examples.Singleton
 {

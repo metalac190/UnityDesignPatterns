@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class is a simple projectile that is the catalyst for triggering a Damaged event.
+/// This is also a fairly typical scenario of the type of way you may implement damage in your games.
+/// </summary>
 namespace Examples.Observer
 {
     [RequireComponent(typeof(Rigidbody))]

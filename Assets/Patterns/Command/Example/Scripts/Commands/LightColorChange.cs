@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Example of a command for the light. We assign a new color to the light, and change
+/// it back when we're done.
+/// </summary>
 namespace Examples.Command
 {
     public class LightColorChange : ICommand

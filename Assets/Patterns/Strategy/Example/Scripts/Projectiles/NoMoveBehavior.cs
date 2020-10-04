@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// Implements a new movement behavior that can be used with our
-/// Strategy Pattern example on the Projectile
+/// Strategy Pattern example on the Projectile - Bonus NullObject Pattern!
 /// </summary>
 
 namespace Examples.Strategy

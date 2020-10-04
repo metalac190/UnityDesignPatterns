@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This class handles the communication between the health slider and the health events.
+/// This is also where we may add additional functionality if it was relevant to the Target.
+/// We start listening to the Health events in OnEnable, and stop listening in OnDisable.
+/// </summary>
 namespace Examples.Observer
 {
     [RequireComponent(typeof(Health))]

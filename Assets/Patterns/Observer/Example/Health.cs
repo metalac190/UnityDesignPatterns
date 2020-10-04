@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/// <summary>
+/// This is a generic health class that acts as the 'Subject' in our Observer pattern.
+/// Other classes can watch for Damaged, Healed, and Killed events and respond appropriately.
+/// We can also optionally send out the amount associated with being Damaged/Healed if we want, which
+/// could be useful for UI systems, pop-up damage text, etc.
+/// </summary>
 namespace Examples.Observer
 {
     public class Health : MonoBehaviour

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Utility script that creates a random color for us and returns it.
+/// </summary>
 namespace Examples.Command
 {
     public static class ColorCreator

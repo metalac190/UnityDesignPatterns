@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script runs the 'Attack' method on whatever weapon we have equipped. By using the NullObject Pattern
+/// we don't need to worry about whether or not its null, just whether or not the thing that's equipped is
+/// actually a weapon
+/// </summary>
 namespace Examples.NullObject
 {
     [RequireComponent(typeof(CharacterStats))]

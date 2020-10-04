@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class handles the majority of the level functionality and input. This script allows us to test our
+/// system and equipping functionality.
+/// </summary>
 namespace Examples.NullObject
 {
     public class LevelController : MonoBehaviour
