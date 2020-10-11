@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
+/// <summary>v
 /// This class access the Level Data Scriptable Object to change and display the name
 /// </summary>
 namespace Examples.Singleton
